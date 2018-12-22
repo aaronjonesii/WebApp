@@ -1,0 +1,13 @@
+<nb-card size="large">
+
+    <nb-card-header>
+        <div class="text-center display-4">Movies Infinite List: {{ count }} movies</div>
+    </nb-card-header>
+
+    <nb-list nbInfiniteList [threshold]="500" (bottomThreshold)="loadNext()">
+        <nb-list-item *ngFor="let movie of movies" (click)="onSelect(movie)">
+            <h6 class="">{{ movie.title }}</h6>
+        </nb-list-item>
+    </nb-list>
+
+</nb-card>
