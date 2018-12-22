@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class IpService {
 
-  baseurl = 'http://127.0.0.1:8000/ip/';
+  baseurl = 'http://anonsys.tech:8000/ip/';
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient) { }
