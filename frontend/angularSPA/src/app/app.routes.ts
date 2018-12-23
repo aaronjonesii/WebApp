@@ -11,4 +11,5 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent, },
   { path: 'movies', component: PopcorntimeComponent, },
   { path: 'ip', component: IpComponent, },
+  { path: 'ip/:query_ip', component: IpComponent },
 ];

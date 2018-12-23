@@ -47,6 +47,7 @@ import { MenuComponent } from './header/menu/menu.component';
 import { PopcorntimeComponent } from './pages/popcorntime/popcorntime.component';
 import { PopcorntimeService } from './pages/popcorntime/popcorntime.service';
 import { IpComponent } from './pages/ip/ip.component';
+import { ImagesPipe } from './pages/popcorntime/images.pipe';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { IpComponent } from './pages/ip/ip.component';
     MenuComponent,
     PopcorntimeComponent,
     IpComponent,
+    ImagesPipe,
   ],
   imports: [
     BrowserModule,
@@ -72,11 +74,14 @@ import { IpComponent } from './pages/ip/ip.component';
     HttpClientModule,
     NbListModule,
     NbCardModule,
+    NbSpinnerModule,
+    NbAccordionModule,
   ],
   providers: [
     NbSidebarService,
     NbSearchService,
     PopcorntimeService,
+    IpComponent,
   ],
   bootstrap: [AppComponent]
 })

@@ -17,5 +17,8 @@ export class IpService {
   getIp(): Observable<any> {
     return this.http.get(this.baseurl, {headers: this.httpHeaders});
   }
+  searchIp(query_ip): Observable<any> {
+    return this.http.get(this.baseurl + query_ip + '/', {headers: this.httpHeaders});
+  }
 
 }

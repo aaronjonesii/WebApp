@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NbSidebarService, NbSearchService } from '@nebular/theme';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'anon-topbar',
@@ -13,11 +15,14 @@ export class TopbarComponent {
   constructor(
     private sidebarService: NbSidebarService,
     private searchService: NbSearchService,
+    private router: Router,
     ) {
       this.searchService.onSearchSubmit()
-      .subscribe((data: any) => {
+      .subscribe(data => {
         this.value = data.term;
-      })
+        this.router.navigate(['/ip', this.value]);
+        // this.ip_api.searchIp(this.value);
+      });
     }
 
 
@@ -26,5 +31,4 @@ export class TopbarComponent {
     this.sidebarService.toggle(true);
     return false;
   }
-    
 }
