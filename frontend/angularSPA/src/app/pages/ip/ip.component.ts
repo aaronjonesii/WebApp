@@ -46,7 +46,6 @@ export class IpComponent {
   }
 
   searchIp = (query_ip) => {
-      const net = require('net');
       const reg_ipv4 = /^(?!0)(?!.*\.$)((1?\d?\d|25[0-5]|2[0-4]\d)(\.|$)){4}$/;
       const reg_ipv6 = /^((?:[0-9A-Fa-f]{1,4}))((?::[0-9A-Fa-f]{1,4}))*::((?:[0-9A-Fa-f]{1,4}))((?::[0-9A-Fa-f]{1,4}))*|((?:[0-9A-Fa-f]{1,4}))((?::[0-9A-Fa-f]{1,4})){7}$/;
       if ( reg_ipv4.test( this.query_ip ) || reg_ipv6.test( this.query_ip ) ) {
