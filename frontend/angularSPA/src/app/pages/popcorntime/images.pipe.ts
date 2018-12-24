@@ -4,11 +4,17 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'images'
 })
 export class ImagesPipe implements PipeTransform {
+
   json_obj = '';
-  transform(val) {
+  img = '';
+  no_img = 'assets/imgs/img_not_available.png';
+  transform(val: any, arg1: any) {
+    // console.log(this.json_obj);
     this.json_obj = JSON.parse(val);
-    // console.log(this.json_obj)
-    return this.json_obj.poster;
+    this.img = this.json_obj[arg1];
+    // if (typeof this.img !== 'undefined') { return this.no_img; }
+    if ( this.img && this.img.includes('http') ) { return this.img; } else { return this.no_img; }
+
   }
 
 }

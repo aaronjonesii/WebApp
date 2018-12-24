@@ -26,12 +26,12 @@ SECRET_KEY = '0k&r)@)28b69w657%6e48uuaw^(f_g!*z@@3!&mffa=yk1-ci-'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'anonsys.tech'
+    # 'anonsys.tech'
 ]
 #
 CORS_ORIGIN_WHITELIST = (
-    # 'localhost:4200',
-    'anonsys.tech:4200',
+    'localhost:4200',
+    # 'anonsys.tech:4200',
 )
 # CORS_ORIGIN_ALLOW_ALL = True
 

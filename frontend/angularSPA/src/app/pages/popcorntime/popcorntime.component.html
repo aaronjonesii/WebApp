@@ -1,18 +1,21 @@
-<div class="container-fluid content-row mx-auto">
-    <div class="row">
-
-        <div class="card mx-auto mb-3 bg-dark" id="card" style="" *ngFor="let movie of movies">
-                <a class="" target="_blank" href="https://www.imdb.com/title/{{ movie.imdb_id }}/" title="{{ movie.title }}">
-                    <img class="card-img-top rounded" id="mov_img" src="{{ movie.images | images }}" alt="{{ movie.title }}">
-                </a>
-
-                <!--Magnet Download Button-->
-                <!--<a href="{% mag_link movie %}" id="" class="down-link bottom-right-overlay badge badge-primary">Download</a>-->
-                <!--<a href="{% mag_link movie %}" id="" class="down-icon-link bottom-right-overlay badge badge-primary"><i id="down-icon" class="down-icon material-icons">get_app</i></a>-->
-
-            </div>
-    </div>
+<div class="w-75 mx-auto">
+    <h1 class="display-4 text-info text-center">Movie Library <span *ngIf="count">- {{ count }} movies</span></h1>
+    <hr />
 </div>
+
+<!--<div class="container-fluid content-row mx-auto">-->
+    <!--<div class="row">-->
+
+        <!--<div class="card mx-auto mb-3 bg-dark" id="card" style="" *ngFor="let movie of movies">-->
+            <!--<a class="" target="_blank" href="https://www.imdb.com/title/{{ movie.imdb_id }}/" title="{{ movie.title }}">-->
+                <!--<img *ngIf="movie.images" class="card-img-top rounded" id="mov_img" src="{{ movie.images | images: 'poster' }}" alt="{{ movie.title }}">-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
 
 <!--<nb-card size="large">-->
 
@@ -21,12 +24,15 @@
     <!--</nb-card-header>-->
 
 
-    <!--<nb-list nbInfiniteList [threshold]="500" (bottomThreshold)="loadNext()">-->
+    <nb-list class="w-100 row" nbInfiniteList listenWindowScroll [threshold]="500" (bottomThreshold)="loadNext()">
 
-        <!--<nb-list-item *ngFor="let movie of movies" (click)="onSelect(movie)">-->
-            <!--<h6 class="">{{ movie.images | images }}</h6>-->
-        <!--</nb-list-item>-->
+        <nb-list-item class="mx-auto mb-3 bg-dark" *ngFor="let movie of movies" (click)="onSelect(movie)">
+            <!--<h6 class="">{{ movie.title }}</h6>-->
+            <a class="" target="_blank" href="https://www.imdb.com/title/{{ movie.imdb_id }}/" title="{{ movie.title }}">
+                <img *ngIf="movie.images" class="card-img-top rounded" id="mov_img" src="{{ movie.images | images: 'poster' }}" alt="{{ movie.title }}">
+            </a>
+        </nb-list-item>
 
-    <!--</nb-list>-->
+    </nb-list>
 
 <!--</nb-card>-->
