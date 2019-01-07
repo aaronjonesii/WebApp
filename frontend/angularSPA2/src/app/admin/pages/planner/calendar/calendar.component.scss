@@ -1,0 +1,7 @@
+:host nb-card {
+  width: 30vw;
+}
+// Force First Card to not shrink smaller than Calendar
+:host nb-card:first-child {
+  min-width: 430px!important;
+}

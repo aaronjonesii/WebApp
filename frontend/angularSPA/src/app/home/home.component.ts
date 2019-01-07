@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  page_title = 'Home Page';
+  page_title = 'Home';
   title = 'Fontend';
 
   constructor() { }

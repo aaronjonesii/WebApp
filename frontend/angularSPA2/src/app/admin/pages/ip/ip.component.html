@@ -1,0 +1,17 @@
+<div class="tbl w-50 mx-auto pt-3">
+    <h1 class="display-4 text-center">{{ ip }}</h1>
+    <hr class="w-75" />
+    <iframe class="w-100 rounded" width="620" height="200" frameborder="0" style="border:0" [src]="map_url | safe" allowfullscreen=""></iframe>
+    <nb-card class="" [nbSpinner]="loading" nbSpinnerStatus="info" nbSpinnerSize="xlarge">
+        <table class="mb-0 rounded table table-hover table-striped table-dark">
+            <tbody>
+
+                <tr *ngFor="let key of keys">
+                    <th class="" scope="row">{{ key | uppercase }} : </th>
+                    <td class="">{{ r.content[key] }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </nb-card>
+</div>

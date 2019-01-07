@@ -1,0 +1,31 @@
+<div class="d-flex mt-4">
+
+    <nb-card class="mx-auto">
+        <nb-card-header>Select Date: <span class="text-primary"> {{ date | date }} </span> </nb-card-header>
+      <nb-card-body class="mx-auto d-flex">
+        <nb-calendar [(date)]="date" size="large"> </nb-calendar>
+      </nb-card-body>
+      <nb-card-footer class="text-center text-muted">Anonymous Systems's Calendar</nb-card-footer>
+    </nb-card>
+
+     <nb-card class="mx-auto" accent="primary">
+        <nb-card-body class="text-center">
+            <div class="jumbotron">
+                <h4 class="">
+                    Events for <span class="text-primary"> {{ date | date }}: </span>
+                </h4>
+            </div>
+            <hr class="w-50" />
+            <nb-accordion>
+                <nb-accordion-item *ngFor="let event of date_details">
+                    <nb-accordion-item-header> {{ event.name }} </nb-accordion-item-header>
+                    <nb-accordion-item-body> {{ event.description }} </nb-accordion-item-body>
+                </nb-accordion-item>
+            </nb-accordion>
+
+        </nb-card-body>
+    </nb-card>
+
+</div>
+
+<!--<nb-calendar [(date)]="date" size="large"> </nb-calendar>-->

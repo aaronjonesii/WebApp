@@ -1,0 +1,54 @@
+<div class="d-flex mt-4">
+
+         <nb-card class="w-25 mx-auto todo-list text-muted" accent="primary" size="medium">
+              <nb-card-header> ToDo: </nb-card-header>
+              <nb-list
+                cdkDropList
+                #todoList="cdkDropList"
+                [cdkDropListData]="todo"
+                [cdkDropListConnectedTo]="[inprogList, completedList]"
+                (cdkDropListDropped)="drop($event)"
+                >
+                <nb-list-item *ngFor="let item of todo" cdkDrag>
+                  <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                  {{ item }}
+                  <div class="text-primary" *cdkDragPreview>{{ item }}</div>
+                </nb-list-item>
+              </nb-list>
+          </nb-card>
+
+         <nb-card class="w-25 mx-auto text-info" accent="info" size="medium">
+              <nb-card-header> In Progress: </nb-card-header>
+              <nb-list
+                cdkDropList
+                #inprogList="cdkDropList"
+                [cdkDropListData]="inprog"
+                [cdkDropListConnectedTo]="[todoList, completedList]"
+                (cdkDropListDropped)="drop($event)"
+                >
+                <nb-list-item *ngFor="let item of inprog" cdkDrag>
+                  <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                  {{ item }}
+                  <div class="text-primary" *cdkDragPreview>{{ item }}</div>
+                </nb-list-item>
+              </nb-list>
+          </nb-card>
+
+         <nb-card class="w-25 mx-auto text-success" accent="success" size="medium">
+              <nb-card-header> Completed: </nb-card-header>
+              <nb-list
+                cdkDropList
+                #completedList="cdkDropList"
+                [cdkDropListData]="completed"
+                [cdkDropListConnectedTo]="[todoList, inprogList ]"
+                (cdkDropListDropped)="drop($event)"
+                >
+                <nb-list-item *ngFor="let item of completed" cdkDrag>
+                  <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                  {{ item }}
+                  <div class="text-primary" *cdkDragPreview>{{ item }}</div>
+                </nb-list-item>
+              </nb-list>
+          </nb-card>
+
+        </div>

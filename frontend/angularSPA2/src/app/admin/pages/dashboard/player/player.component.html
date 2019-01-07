@@ -1,0 +1,55 @@
+<nb-card class="">
+      <nb-card-header class="" style="font-size: 2rem;">
+        <div class="row">
+          <p class="text-primary mx-auto"> Music Player - My Princess created this.. </p>
+          <!--<i class="nb-audio"></i>-->
+          <!--<i class="" data-eva-fill="grey" data-eva="speaker-outline" data-eva-height="40" data-eva-width="40" data-eva-animation="shake" data-eva-hover="true"></i>-->
+        </div>
+      </nb-card-header>
+        <nb-card-body class="row d-flex justify-content-around" style="height: 200px;">
+
+          <nb-card class="col-5">
+            <div class="row">
+              <div class="col d-flex">
+                <img  class="rounded cover" src="http://i1.sndcdn.com/artworks-000146382733-1c0jcj-t500x500.jpg" />
+              </div>
+              <div class="col d-flex flex-column justify-content-around">
+                <div class="lead">Artist - Song Name</div>
+                <div class="">
+                  <input class="w-100" type="range" min="0" max="100" step="0.01" />
+                </div>
+                <div class="controls" style="font-size: 2rem;cursor: pointer;">
+                  <i class="nb-shuffle shuffle"></i>
+                  <i class="nb-skip-backward prev"></i>
+                  <i class="nb-play"></i>
+                  <i class="nb-skip-forward next"></i>
+                  <i class="nb-loop loop"></i>
+                </div>
+              </div>
+            </div>
+          </nb-card>
+
+          <nb-card class="col-6">
+            <nb-card-header class="text-muted"> Music Player Queue: </nb-card-header>
+              <nb-list class="d-flex flex-row">
+                  <nb-list-item class="" *ngFor="let track of tracks">
+                      <img class="rounded mr-3" src="{{ track.url }}" alt="{{ track.name }}" nbTooltip="{{ track.name }} - {{ track.artist }}" nbTooltipPlacement="bottom" nbTooltipStatus="primary" />
+                  </nb-list-item>
+              </nb-list>
+          </nb-card>
+
+        </nb-card-body>
+
+      <!--<caption> Danice created this... </caption>-->
+
+      <nb-card-footer>
+        <div class="row d-flex justify-content-center align-items-center" style="font-size: 2rem;cursor: pointer;">
+          <i class="nb-volume-mute"></i>
+          <div class="w-75">
+            <input class="w-100" type="range" min="0" max="100" step="0.01" />
+          </div>
+          <i class="nb-volume-high"></i>
+        </div>
+      </nb-card-footer>
+
+</nb-card>

@@ -11,9 +11,11 @@ export class MenuComponent {
   constructor() { }
 
   menu_items = [
-    { title: 'Dashboard', icon: 'nb-home', link: '/' },
+    { title: 'Home', icon: 'nb-home', link: '/' },
+    { title: 'Dashboard', icon: 'nb-grid-a-outline', link: 'dashboard' },
     { title: 'IP Lookup', icon: 'nb-cloudy', link: 'ip', },
     { title: 'Movie Library', icon: 'nb-play-outline', link: 'movies', },
+    { title: 'Project Planner', icon: 'nb-compose', link: 'planner', },
     // { title: 'Music Player', icon: 'nb-audio', link: 'music', },
   ];
 

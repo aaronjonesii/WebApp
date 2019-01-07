@@ -1,0 +1,37 @@
+<div class="d-flex flex-column mt-4">
+
+  <p class="mx-auto text-info mb-0 display-4">{{ notes.length }} Notes below:</p>
+
+
+  <div class="float-left" id="newnote">
+    <!-- Create new Note button -->
+    <button nbButton hero status="primary" (click)="showNotesModal()">
+      Create New Note
+    </button>
+  </div>
+
+
+  <hr class="w-25" />
+  <nb-reveal-card class="w-50 mb-2 mx-auto" *ngFor="let note of notes">
+    <nb-card-front>
+      <nb-card accent="{{ random_color }}">
+        <nb-card-body>
+          {{ note.title }}
+        </nb-card-body>
+      </nb-card>
+    </nb-card-front>
+
+    <nb-card-back>
+      <nb-card accent="{{ random_color2 }}">
+        <nb-card-body>
+          {{ note.description }}
+        </nb-card-body>
+      </nb-card>
+    </nb-card-back>
+  </nb-reveal-card>
+
+</div>
+
+
+
+
