@@ -56,7 +56,7 @@ import { WeatherComponent } from './pages/dashboard/weather/weather.component';
 import { SafePipe } from './pages/ip/safe.pipe';
 import { ModalComponent } from './pages/planner/notes/modal/modal.component';
 import { ImagesPipe } from './pages/popcorntime/images.pipe';
-import { PopcorntimeService} from '../../../../angularSPA/src/app/pages/popcorntime/popcorntime.service';
+import { PopcorntimeService} from './pages/popcorntime/popcorntime.service';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
