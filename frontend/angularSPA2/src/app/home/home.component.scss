@@ -1,15 +1,61 @@
+#bg-img {
+  height: 800px;
+}
 .logo {
   width: 2rem;
   height: 2rem;
 }
 
-// Add padding to all div sections
+// Add margins to all div sections
 nb-card > div {
   margin: 0.5rem;
 }
 
 // Change icon size
 i {
-  font-size: 2.75rem;
+  font-size: 2rem;
   color: aliceblue;
+}
+
+// Make Time for track small
+time {
+  font-size: 0.5rem;
+}
+
+// Background image for Music Card
+#music_bg {
+  background-image: url('assets/imgs/sound_wave2.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-color: lightslategray;
+}
+
+// Background image for Movies Card
+#movies_bg {
+  background-image: url('assets/imgs/popcorntime_header.jpg');
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+// Background image for Weather Card
+#weather_bg {
+  background-image: url('assets/imgs/Foggy_mountains.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#item_info {
+  font-size: 0.75rem;
+}
+
+// Popcorntime Component Override!
+a > .card-img-top {
+  width: 73px!important;
+  height: 124px!important;
 }
