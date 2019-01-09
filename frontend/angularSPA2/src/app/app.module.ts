@@ -12,13 +12,17 @@ import { AdminModule } from './admin/admin.module';
 import {
   NbThemeModule, NbLayoutModule, NbSidebarModule,
   NbSearchModule, NbActionsModule, NbMenuModule,
-  NbButtonModule, NbCardModule, NbInputModule
+  NbButtonModule, NbCardModule, NbInputModule,
+  NbListComponent, NbListModule, NbSpinnerModule,
 } from '@nebular/theme';
 import { TopbarComponent } from './admin/header/topbar/topbar.component';
 import { MenuComponent } from './admin/header/menu/menu.component';
 import { NgbModalModule, NgbModule, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { WeatherComponent } from './admin/pages/dashboard/weather/weather.component';
 import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
+import { MusicArtworkPipe } from './home/music-artwork.pipe';
+import { SafePipe } from './admin/pages/ip/safe.pipe';
+
 
 
 @NgModule({
@@ -28,6 +32,9 @@ import { DashboardComponent } from './admin/pages/dashboard/dashboard.component'
     AdminComponent,
     TopbarComponent,
     MenuComponent,
+    MusicArtworkPipe,
+    // SafePipe,
+    // WeatherComponent,
   ],
   entryComponents: [
     // ModalComponent, // For Notes Modal
@@ -46,14 +53,15 @@ import { DashboardComponent } from './admin/pages/dashboard/dashboard.component'
     NbMenuModule.forRoot(),
     NbButtonModule,
     NbCardModule,
+    NbListModule,
+    NbSpinnerModule,
     NbInputModule,
     NgbModalModule,
     NgbModule,
     HttpClientModule,
   ],
-  providers: [
-
-  ],
+  providers: [ ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,71 +3,138 @@
   <nb-layout-column class="p-0">
 
     <!-- Beginning of Main Card -->
-    <nb-card class="m-0 rounded-0 bg-dark text-primary">
+    <nb-card class="m-0 rounded-0 text-primary vh-100" [style.background-image]="safestyleImage(images[0])" style="-webkit-background-size: cover;background-size: cover; background-position: center;">
 
-      <!-- Logo & Title -->
-        <div class="row d-flex justify-content-center align-items-center">
-          <img class="logo" src="assets/imgs/Logo.png" alt="...">
-          <div class=""> Anonymous Systems </div>
-        </div>
+      <!-- Background Image -->
+        <!--<div class="row d-flex align-items-center justify-content-center">-->
+          <!--<img id="bg-img" class="img-fluid rounded shadow card-img" [src]="images[0]">-->
+        <!--</div>-->
+
+      <!-- Card Overlay -->
+      <div class="">
+
+        <!-- Logo & Title -->
+          <div class="row d-flex justify-content-center align-items-center mb-3">
+            <img class="logo" src="assets/imgs/Logo.png" alt="...">
+            <div class=""> Anonymous Systems </div>
+          </div>
 
 
-      <!-- Main & Subtitle -->
-        <div class="d-block text-center">
-          <div class="display-4"> Main title for Landing page </div>
-          <div class="lead" style="font-size: 2rem;"> Subtitle for Landing page, should be longer than above </div>
-        </div>
 
-      <!-- Email Form -->
-        <div class="row d-flex align-items-center justify-content-center">
+        <!-- Three columns for cards -->
+        <div class="row d-flex justify-content-around">
 
-            <div class="input-group w-25">
-              <div class="input-group-prepend">
-                <!--<span class="input-group-text" id="basic-addon1">@</span>-->
-                <span class="nb-email input-group-text" id="email-icon"></span>
+          <!-- Apple Music Player -->
+          <nb-card class="w-25 bg-dark text-primary">
+            <nb-card-header id="music_bg" class="d-flex justify-content-center"> <i class="nb-audio"></i> </nb-card-header>
+            <nb-card-body class="pt-2">
+
+              <div class="row d-flex justify-content-center mb-2 lead"> Now Playing </div>
+              <div class="row mb-3">
+                <!-- Now Playing Artwork -->
+                <div class="col">
+                  <img  class="rounded cover" src="http://i1.sndcdn.com/artworks-000146382733-1c0jcj-t500x500.jpg" width="85%" />
+                </div>
+                <!-- Now Playing item -->
+                <div class="col">
+                  <div class="row flex-column text-left px-2">
+                    <p class="lead">Song Name</p>
+                    <p class="lead">Artist Name</p>
+                    <p class="lead">Album Name</p>
+                  </div>
+                  <!-- Playback Controls -->
+                  <div class="row d-flex align-content-center justify-content-around" style="font-size: 2rem;cursor: pointer;">
+                    <i class="nb-shuffle shuffle"></i>
+                    <i class="nb-skip-backward prev"></i>
+                    <i class="nb-play"></i>
+                    <i class="nb-skip-forward next"></i>
+                    <i class="nb-loop loop"></i>
+                  </div>
+                </div>
               </div>
-              <!--<input type="text" class="form-control" placeholder="" aria-label="Email" aria-describedby="email-icon">-->
-              <input size="35" type="email" class="mr-1 w-25 form-control" id="email-getstarted" placeholder="Enter your email address" fieldSize="medium" shape="round" nbInput>
-            </div>
-            <button class="rounded-pill" [routerLink]="['/dashboard']" nbButton hero status="primary">Get Started</button>
+              <!-- Playback Time Information -->
+              <div class="d-flex justify-content-center mb-3">
+                <time class="">0:00</time>
+                <!--<hr class="w-75" />-->
+                <div class="w-75 mx-1">
+                  <input class="w-100" type="range" min="0" max="100" step="0.01" />
+                </div>
+                <time class="">3:45</time>
+              </div>
+
+              <!-- Up Next Queue -->
+              <nb-card class="bg-light">
+                <nb-card-header class="text-center">Top Songs</nb-card-header>
+                <nb-card-body class="pt-3" style="height: 200px;">
+
+                  <!-- 1ST LINE SEPARATOR -->
+                  <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-8"> <hr class="w-100 m-0" /> </div>
+                  </div>
+
+                  <!-- Up Next Item in Queue -->
+                  <div class="p-0 m-0" *ngFor="let item of topSongs">
+                    <!-- Item info -->
+                    <div class="row d-flex align-items-center" style="">
+                      <div class="col-3 px-2 d-flex justify-content-center"> <img  class="rounded cover img-responsive" src="{{ item.attributes.artwork.url | musicArtwork }}" width="85%" height="100%" />  </div>
+                      <div class="col-8 px-1" id="item_info">
+                        <div class="text-muted m-0 text-truncate">{{ item.attributes.name }}</div>
+                        <div class="text-muted m-0 text-truncate">{{ item.attributes.artistName }} &mdash; {{ item.attributes.albumName }}</div>
+                      </div>
+                    </div>
+                    <!-- LINE SEPARATOR -->
+                    <div class="row">
+                      <div class="col-3"></div>
+                      <div class="col-8"> <hr class="w-100 m-0" /> </div>
+                    </div>
+                  </div>
+
+                </nb-card-body>
+              </nb-card>
+
+            </nb-card-body>
+          </nb-card>
+
+          <!-- Movie Library -->
+          <nb-card  class="w-25 bg-dark text-primary">
+            <nb-card-header id="movies_bg" class="d-flex justify-content-center"> <i class="nb-play-outline"></i> </nb-card-header>
+            <nb-card-body class="d-flex align-items-center justify-content-center">
+
+              <nb-list class="w-100 row" style="flex-direction: row;height: 400px;" nbInfiniteList listenWindowScroll [threshold]="50">
+
+                <nb-list-item class="mx-auto mb-3 border-0" *ngFor="let movie of movies" [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="xlarge">
+                  <!--<h6 class="">{{ movie.title }}</h6>-->
+                  <a class="" target="_blank" href="https://www.imdb.com/title/{{ movie.imdb_id }}/" title="{{ movie.title }}">
+                    <img *ngIf="movie.images" class="card-img-top rounded" id="mov_img" src="{{ movie.images | images: 'poster' }}" alt="{{ movie.title }}">
+                  </a>
+                </nb-list-item>
+
+
+              </nb-list>
+              <!--<anon-popcorntime></anon-popcorntime>-->
+
+            </nb-card-body>
+          </nb-card>
+
+          <!-- Weather -->
+          <nb-card class="w-25 bg-dark text-primary">
+            <nb-card-header id="weather_bg" class="d-flex justify-content-center"> <i class="nb-partlysunny"></i> </nb-card-header>
+            <nb-card-body class="d-flex align-items-center justify-content-center">
+
+              <anon-weather></anon-weather>
+
+            </nb-card-body>
+          </nb-card>
         </div>
 
-      <!-- Image -->
+        <!-- Dashboard Button -->
         <div class="row d-flex align-items-center justify-content-center">
-          <img class="img-fluid shadow m-2" [src]="images[0]">
+            <div class="lead" style="font-size: 2.5rem;"> Go to the Dahsboard =>&nbsp;</div>
+            <button class="rounded-pill" [routerLink]="['/dashboard']" nbButton hero status="info">Click Here</button>
         </div>
-
-      <!-- Three columns for cards -->
-      <div class="row d-flex justify-content-around">
-        <nb-card class="w-25 bg-dark text-primary">
-          <nb-card-header class="d-flex justify-content-center"> <i class="nb-audio"></i> </nb-card-header>
-          <nb-card-body class="d-flex align-items-center justify-content-center">
-            Music Player
-          </nb-card-body>
-        </nb-card>
-
-        <nb-card class="w-25 bg-dark text-primary">
-          <nb-card-header class="d-flex justify-content-center"> <i class="nb-play-outline"></i> </nb-card-header>
-          <nb-card-body class="d-flex align-items-center justify-content-center">
-            Movie Library
-          </nb-card-body>
-        </nb-card>
-
-        <nb-card class="w-25 bg-dark text-primary">
-          <nb-card-header class="d-flex justify-content-center"> <i class="nb-partlysunny"></i> </nb-card-header>
-          <nb-card-body class="d-flex align-items-center justify-content-center">
-            <div class="lead">Weather</div>
-
-          </nb-card-body>
-        </nb-card>
+        <!-- End of Card Overlay -->
       </div>
-
-    <!-- Dashboard Button -->
-    <div class="row d-flex align-items-center justify-content-center">
-        <div class="lead" style="font-size: 2.5rem;"> Go to the Dahsboard =>&nbsp;</div>
-        <button class="rounded-pill" [routerLink]="['/dashboard']" nbButton hero status="info">Click Here</button>
-    </div>
-
       <!-- End of Main Card -->
     </nb-card>
 

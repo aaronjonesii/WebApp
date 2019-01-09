@@ -36,7 +36,7 @@ import {
   NbCalendarKitModule,
   NbSidebarService,
   NbSearchService,
-  NbDialogService,
+  NbDialogService, NbListComponent,
 
 } from '@nebular/theme';
 
@@ -60,9 +60,11 @@ import { PopcorntimeService} from './pages/popcorntime/popcorntime.service';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { AppComponent } from '../app.component';
 
 @NgModule({
   declarations: [
+      // AppComponent,
       DashboardComponent,
       IpComponent,
       // MenuComponent,
@@ -107,7 +109,15 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     NbSearchService,
     NbDialogService,
     PopcorntimeService,
+    PopcorntimeComponent,
     IpComponent,
+    SafePipe,
+  ],
+  exports: [
+      WeatherComponent,
+      PopcorntimeComponent,
+      ImagesPipe,
+      // NbListComponent,
   ]
 })
 export class AdminModule { }
