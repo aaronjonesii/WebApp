@@ -1,0 +1,43 @@
+<div id="main" class="vh-100 d-flex justify-content-center" style="background-image: url('assets/imgs/cosmic-nebular.jpg');">
+
+  <div class="w-100 d-flex justify-content-around align-items-center text-white" id="wrapper">
+
+      <!-- Left Side -->
+      <div class="w-50 text-center" id="leftSide">
+          <img class="img-responsive" id="logo" width="30%" src="assets/imgs/logo.png" />
+          <div id="logo-text" class="display-4">Anonymous Systems</div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="w-50 card bg-transparent border-0" id="rightSide">
+          <img class="img-responsive card-img mx-auto" id="macbook" src="assets/imgs/MacBookPro_mojave.png" />
+          <div class="card-img-overlay mx-auto d-flex flex-column text-center" id="macbook-screen">
+                <!-- TopBar -->
+              <div class="row mb-auto d-flex justify-content-end small" id="macbook-topbar">
+                  <p> 99% <i style="margin-top: -4px;" class="icon" data-eva="charging" data-eva-height="16" data-eva-width="18"></i> </p>
+                  <p> <i style="margin-top: -4px;" class="icon" data-eva="wifi" data-eva-height="16" data-eva-width="18"></i> </p>
+                  <p> {{ today | date: 'EEE LLL d' }} </p>
+                  <time> {{ today | date: 'shortTime' }} </time>
+              </div>
+                    <!-- Middle -->
+                  <div class="mx-auto" id="user-login">
+                    <img class="rounded-circle" src="assets/imgs/Chalk_UserPicture.png" width="10%">
+                      <br />
+                  <form (dblclick)="openBottomSheet()" aria-label="Navigation-Hint">
+                    <input class="mt-2 password-field rounded border-0 p-1" type="text" placeholder="Enter Password" autocomplete="off" size="10"/>
+                  </form>
+                  </div>
+                    <!-- Cancel -->
+                  <div class="mt-auto mx-auto" id="cancel-login">
+                      <i class="icon" data-eva="close-circle-outline"></i>
+                      <p class="font-weight-bolder" id="cancel_text">Cancel</p>
+                  </div>
+
+
+              <!--<p class="text-primary p-4"> <anon-music></anon-music> </p>-->
+          </div>
+      </div>
+
+  </div>
+
+</div>

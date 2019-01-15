@@ -20,8 +20,13 @@ import { MenuComponent } from './admin/header/menu/menu.component';
 import { NgbModalModule, NgbModule, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { WeatherComponent } from './admin/pages/dashboard/weather/weather.component';
 import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
-import { MusicArtworkPipe } from './home/music-artwork.pipe';
+import { MusicArtworkPipe } from './home/musickit/pipes/music-artwork.pipe';
 import { SafePipe } from './admin/pages/ip/safe.pipe';
+import { SongComponent } from './home/musickit/components/song/song.component';
+import { FormatArtworkUrlPipe } from './home/musickit/pipes/format-artwork-url.pipe';
+import { FormatMillisecondsToTextPipe } from './home/musickit/pipes/format-milliseconds-to-text.pipe';
+import { FormatMillisecondsPipe } from './home/musickit/pipes/format-milliseconds.pipe';
+import { FormatSecondsPipe } from './home/musickit/pipes/format-seconds.pipe';
 
 
 
@@ -33,6 +38,11 @@ import { SafePipe } from './admin/pages/ip/safe.pipe';
     TopbarComponent,
     MenuComponent,
     MusicArtworkPipe,
+    SongComponent,
+    FormatArtworkUrlPipe,
+    FormatMillisecondsToTextPipe,
+    FormatMillisecondsPipe,
+    FormatSecondsPipe,
     // SafePipe,
     // WeatherComponent,
   ],

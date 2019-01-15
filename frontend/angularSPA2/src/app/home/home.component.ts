@@ -1,8 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import { MusickitapiService } from './musickitapi.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MusickitapiService } from './musickit/services/musickitapi.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PopcorntimeComponent } from '../admin/pages/popcorntime/popcorntime.component';
-import {PopcorntimeService} from "../admin/pages/popcorntime/popcorntime.service";
+import { PopcorntimeService } from '../admin/pages/popcorntime/popcorntime.service';
+import { MusicplayerService, PlaybackStates } from './musickit/services/musicplayer.service';
 
 // declare var MusicKit: any;
 
@@ -16,17 +17,12 @@ export class HomeComponent implements OnInit {
   musicKit: any;
   title = 'Landing';
   images = [1, 2, 3].map(() => `https://picsum.photos/1450?random&t=${Math.random()}`);
-  upnext = [
-    {'song': 'song1', 'artist': 'artist1', 'album': 'album1', 'artwork': 'http://i1.sndcdn.com/artworks-000146382733-1c0jcj-t500x500.jpg'},
-    {'song': 'song2', 'artist': 'artist2', 'album': 'album2', 'artwork': 'http://i1.sndcdn.com/artworks-000146382733-1c0jcj-t500x500.jpg'},
-    {'song': 'song3', 'artist': 'artist3', 'album': 'album3', 'artwork': 'http://i1.sndcdn.com/artworks-000146382733-1c0jcj-t500x500.jpg'},
-    {'song': 'song4', 'artist': 'artist4', 'album': 'album4', 'artwork': 'http://i1.sndcdn.com/artworks-000146382733-1c0jcj-t500x500.jpg'},
-  ];
-
+  public playbackStates = PlaybackStates;
   topSongs = [];
   topAlbums = [];
   topPlaylists = [];
   isLoading = true;
+
   // Popconrtime Varibales below:
   movies = [{title: 'Loading Movies...'}];
   movie_img = '';
@@ -36,6 +32,7 @@ export class HomeComponent implements OnInit {
   movies_loading = true;
 
   constructor( private apiService: MusickitapiService,
+               private playerService: MusicplayerService,
                private sanitizer: DomSanitizer,
                private popcorntime: PopcorntimeComponent,
                private backend_api: PopcorntimeService,
@@ -72,6 +69,7 @@ export class HomeComponent implements OnInit {
     // https://developer.apple.com/documentation/musickitjs/accessing_musickit_features_using_javascript
     // https://github.com/naveedgol/apple-music-web-player
     // https://developer.apple.com/documentation/musickitjs/adding_musickit_features_using_html#overview
+    // https://itunes.apple.com/us/playlist/car-11-30-2017/pl.u-ReeWTxY2oL7
     //
     this.apiService.fetchChart().subscribe( data => {
       this.topAlbums = data.albums[0].data;
@@ -81,6 +79,39 @@ export class HomeComponent implements OnInit {
       // console.log(this.topSongs);
     });
   }
+
+  playSong( trackIndex: number ): void {
+    this.playerService.setQueueFromItems( this.topSongs, trackIndex ).subscribe();
+  }
+
+  get currentPlaybackDuration(): number {
+    return this.playerService.currentPlaybackDuration;
+  }
+
+  get currentPlaybackTime(): number {
+    return this.playerService.currentPlaybackTime;
+  }
+
+  togglePlayPause(): void {
+    if ( this.playerService.playbackState === this.playbackStates.PAUSED ) {
+      this.playerService.play().subscribe();
+    } else {
+      this.playerService.pause().subscribe();
+    }
+  }
+
+  skipToNextItem(): void {
+    this.playerService.skipToNextItem().subscribe();
+  }
+
+  skipToPreviousItem(): void {
+    this.playerService.skipToPreviousItem().subscribe();
+  }
+
+  seekToTime( time: number ): void {
+    this.playerService.seekToTime( time ).subscribe();
+  }
+
 
   safestyleImage(imgURL) {
     return this.sanitizer.bypassSecurityTrustStyle('url("' + imgURL + '")');

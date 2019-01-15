@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { SongComponent } from './home/musickit/components/song/song.component';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -18,6 +19,7 @@ import { AdminComponent } from './admin/admin.component';
     AppComponent,
     HomeComponent,
     AdminComponent,
+    SongComponent,
   ],
   imports: [
     NativeScriptModule,

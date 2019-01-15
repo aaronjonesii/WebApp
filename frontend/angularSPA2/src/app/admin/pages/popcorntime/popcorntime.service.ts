@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 
 export class PopcorntimeService {
 
-  baseurl = 'http://anonsys.tech:8000/movies/'
-  // baseurl = 'http://localhost:8000/movies/'
+  // baseurl = 'http://anonsys.tech:8000/movies/'
+  baseurl = 'http://localhost:8000/movies/'
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient) {

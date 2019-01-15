@@ -34,7 +34,9 @@
               "node_modules/nebular-icons/scss/nebular-icons.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/eva-icons/eva.js"
+            ]
           },
           "configurations": {
             "production": {

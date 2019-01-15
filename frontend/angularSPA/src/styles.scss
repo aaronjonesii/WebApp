@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Import common styles
+@import 'app-common';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+// Nebular //
+@import 'themes';
+// framework component styles which will use your new theme
+@import '~@nebular/theme/styles/globals';
+// install the framework
+@include nb-install() {
+  @include nb-theme-global();
+};
+
+// HOW TO USE VARIABLES //
+//:host { background: nb-theme(card-bg); }
