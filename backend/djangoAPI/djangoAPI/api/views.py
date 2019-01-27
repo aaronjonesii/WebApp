@@ -1,20 +1,27 @@
-from .serializers import Movieserializer
+from .serializers import Movieserializer, PostSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import viewsets
+from rest_framework import generics
 from requests import get
 
-from .models import Movie
+from .models import Movie, Post
 
 
 # Movie ViewSet below:
 class MovieViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows movies to be viewed or edited.
     """
-    queryset = Movie.objects.all().order_by('-released')
+    queryset = Movie.objects.all().order_by('-released') # Newest first
     serializer_class = Movieserializer
+
+
+# Blog Posts View below:
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all().order_by('-created_at')  # Newest first
+    serializer_class = PostSerializer
 
 
 # IP View below:

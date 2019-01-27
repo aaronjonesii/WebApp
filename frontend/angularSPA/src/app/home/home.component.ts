@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatBottomSheet, MatBottomSheetRef, MatBottomSheetConfig } from '@angular/material';
 import {AppComponent} from "../app.component";
 
@@ -39,15 +39,20 @@ declare var eva: any;
   providers: [],
   template: `
     <mat-nav-list class="">
-      <a routerLink="admin" class="eva-parent-hover disabled" mat-list-item (click)="bottomSheetRef.dismiss()">
-        <span mat-line>Admin Dashboard</span>
+      <a href="#" class="eva-parent-hover text-muted" mat-list-item (click)="bottomSheetRef.dismiss()">
+        <span mat-line>Admin Dashboard <span class="text-primary">(Coming Soon)</span> </span>
         <span mat-line>Administrator Dashboard to manage this WebApp.</span>
-        <i class="icon" data-eva="browser-outline"></i>
+        <i class="icon icon-disabled" data-eva="browser-outline" data-eva-animation="none"></i>
       </a>
       <a routerLink="music" class="eva-parent-hover" mat-list-item (click)="bottomSheetRef.dismiss()">
         <span mat-line>Apple Music Player</span>
         <span mat-line>Browse Apple Music Top Charts or play music from your account.</span>
         <i class="icon" data-eva="music-outline"></i>
+      </a>
+      <a routerLink="blog" class="eva-parent-hover" mat-list-item (click)="bottomSheetRef.dismiss()">
+        <span mat-line>Blog</span>
+        <span mat-line>Posts for to track and note daily activities.</span>
+        <i class="icon" data-eva="list-outline"></i>
       </a>
       <a routerLink="ip" class="eva-parent-hover" mat-list-item (click)="bottomSheetRef.dismiss()">
         <span mat-line>IP Lookup</span>
@@ -63,6 +68,7 @@ declare var eva: any;
   `,
   styles: [`
       mat-nav-list > a {color: white;}
+      .icon-disabled { fill: #7f8177!important; }
   `],
 })
 export class BottomSheet implements OnInit {

@@ -148,3 +148,12 @@ REST_FRAMEWORK = {
     #     'rest_framework.parsers.JSONParser',
     # )
 }
+
+
+# Sentry Monitoring
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+sentry_sdk.init(
+    dsn="https://fef4d776407348b3b5d6df23706e2e32@sentry.io/1371566",
+    integrations=[DjangoIntegration()]
+)

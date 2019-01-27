@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { IpComponent } from './ip/ip.component';
 import { MusicComponent } from './music/music.component';
 import { MoviesComponent } from './movies/movies.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -24,6 +25,7 @@ import { MoviesComponent } from './movies/movies.component';
     IpComponent,
     MusicComponent,
     MoviesComponent,
+    BlogComponent,
   ],
   imports: [
     NativeScriptModule,

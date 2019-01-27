@@ -15,7 +15,12 @@ import { HomeComponent, BottomSheet } from './home/home.component';
 import { IpComponent } from './ip/ip.component';
 import { MusicComponent } from './music/music.component';
 import { MoviesComponent } from './movies/movies.component';
-import {AdminComponent} from "./admin/admin.component";
+import { AdminComponent } from './admin/admin.component';
+import { BlogComponent } from './blog/blog.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 
 @NgModule({
@@ -27,6 +32,7 @@ import {AdminComponent} from "./admin/admin.component";
     MusicComponent,
     MoviesComponent,
     AdminComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,9 @@ import {AdminComponent} from "./admin/admin.component";
     OverlayModule,
     MaterialModule,
     NebularModule,
+    HttpClientModule,
+    LayoutModule,
+
   ],
   exports: [ ],
   entryComponents: [ ],

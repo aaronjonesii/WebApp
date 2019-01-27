@@ -1,0 +1,35 @@
+<div class="container-fluid bg-light pt-3" id="main-wrapper">
+  <div class="">
+    <!-- Blog Post -->
+    <nb-card class="container bg-dark px-5 pt-5" *ngIf="post | async; let post">
+      <!--<nb-badge *ngIf="postSaved" text="new" status="success" position="top left"></nb-badge>-->
+      <nb-card-body class="card">
+        <img class="card-img-top w-100" [src]="post.image" />
+        <div class="card-body p-1">
+
+          <nb-alert *ngIf="postSaved" status="success"> Blog Post Saved! </nb-alert>
+          <div class="d-flex justify-content-between">
+            <button class="" (click)="deletePost(postID)" nbButton hero status="danger">Delete Post</button>
+            <button class="" (click)="savePost(post.id, title, content)" nbButton hero status="success">Save Post</button>
+          </div>
+
+          <anon-editor class="card-title text-center" smallConfig="true" [postDetails]="post.title" #title></anon-editor>
+          <hr class="w-75 bg-secondary" />
+          <!--<div class="card-text">Testing margins for surrounding containers. </div>-->
+
+          <anon-editor class="card-text" smallConfig="false" [postDetails]="post.content" #content></anon-editor>
+        </div>
+
+      </nb-card-body>
+
+    <nb-card-footer class="d-flex flex-column justify-content-center align-items-center w-100">
+      <div class="d-flex justify-content-between align-items-center"> <div class="d-flex"> Previous Post </div> <img class="img-responsive" width="3%" height="3%" src="assets/imgs/logo.png" /> <div class="d-flex"> Next Post </div> </div>
+      <hr class="bg-light w-100" />
+    </nb-card-footer>
+
+    </nb-card>
+
+    <button class="backbtn" (click)="goBack()" nbButton hero status="info">Go Back</button>
+
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="" *ngIf="itemsList">
+
+
+<nb-reveal-card class="w-100" *ngFor="let item of itemsList">
+
+  <nb-card-front>
+    <nb-card [accent]="cateColor">
+      <nb-card-body>
+
+        <div class="row d-flex align-content-center">
+          <nb-checkbox class="col-1" status="success" [value]="item.completed"></nb-checkbox>
+          <div class="h6 text-primary col-10 m-0 align-self-center"> {{ item.title }} </div>
+        </div>
+
+      </nb-card-body>
+    </nb-card>
+  </nb-card-front>
+
+  <nb-card-back>
+    <nb-card [accent]="cateColor">
+      <nb-card-body class="">
+
+        <div class="row justify-content-center">
+          <div class="col-1 icons">
+            <i class="" data-eva="edit-outline" data-eva-fill="grey" data-eva-width="16"></i>
+            <i class="" data-eva="close-circle-outline" data-eva-fill="red" data-eva-width="16"></i>
+          </div>
+
+          <p class="text-primary todo-desc col-10 align-self-center small"> {{ item.desc }} </p>
+
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-card-back>
+
+</nb-reveal-card>
+
+
+
+</div>
+

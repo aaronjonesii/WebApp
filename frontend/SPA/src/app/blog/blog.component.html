@@ -1,0 +1,83 @@
+<div class="container-fluid p-0">
+  <nav class="container-fluid bg-dark text-center text-white p-2" aria-label="Navigation">
+
+    <div class="container-fluid">
+      <div class="row d-flex align-items-center">
+
+        <div class="col d-flex justify-content-start">
+          <div class="h6"> Anonymous Systems </div>
+        </div>
+
+        <div class="col d-flex justify-content-center">
+          <div class="h6"> Navigation </div>
+        </div>
+
+        <div class="col d-flex justify-content-end">
+          <button class="px-2 py-1" routerLink="/" nbButton hero status="primary">Home</button>
+        </div>
+
+      </div>
+    </div>
+
+  </nav>
+
+  <div class="background-wrapper">
+
+      <div class="container-fluid header p-2" id="main-wrapper" aria-label="Blog-Header">
+        <div class="container">
+          <div class="row">
+
+            <div class="col d-flex justify-content-start align-self-center" aria-label="Title/Logo">
+              <div class="col"> <h4 class="m-0 text-primary"> Blog Newspost </h4> </div>
+            </div>
+
+            <div class="col d-flex justify-content-end" aria-label="Blog-Nav">
+              <div class="col-md-auto align-self-center"> <button class="m-0 p-0 bg-transparent" style="border: none!important;cursor: pointer;" nbButton> <nb-search class="" type="rotate-layout"></nb-search> </button> </div>
+              <div class="col col-lg-2"> <button class="m-0 bg-transparent" style="border: none!important;cursor: pointer;" nbButton> Archive </button> </div>
+            </div>
+
+          </div>
+          <hr class="my-1"/>
+        </div>
+      </div>
+
+
+
+      <div class="container-fluid content p-3 rounded" aria-label="Blog-Content">
+
+        <div class="row title flex-column align-items-center text-secondary">
+          <div class="display-4"> Most Recent Posts </div>
+          <hr class="w-50" />
+        </div>
+
+
+        <div class="container-fluid posts" aria-label="Blog-Posts">
+
+          <nb-card
+            class="container post"
+            *ngFor="let post of posts$ | async as posts; index as i; first as isFirst;"
+          >
+            <nb-card-header class="d-flex justify-content-between">
+              <!--<anon-editor smallConfig="true" [postDetails]="post.title" isDisabled="true"> </anon-editor>-->
+              <div class="" [innerHTML]="post.title">  </div>
+              <a routerLink="{{post.id}}"> <i data-eva="arrowhead-right-outline" data-eva-animation="zoom" data-eva-fill="lightblue" data-eva-width="48" data-eva-height="48"></i> </a>
+            </nb-card-header>
+            <nb-card-body> <div class="" [innerHTML]="post.content">  </div> </nb-card-body>
+            <nb-card-footer> Post created on {{ post.created_at | date }} </nb-card-footer>
+          </nb-card>
+
+        </div>
+
+
+        <footer class="container footer" aria-label="Blog-Footer">
+          <div class="row d-flex justify-content-center">
+            <!--<button class="btn btn-primary" routerLink="/">Go Home</button>-->
+          </div>
+        </footer>
+
+      </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,9 @@
+<div class="">
+
+  <ckeditor *ngIf="smallConfig" [config]="editorConfig" [editor]="Editor" [(ngModel)]="model.editorData" (change)="onChanges($event)" [disabled]="isDisabled"></ckeditor>
+
+  <ckeditor *ngIf="!smallConfig" [config]="fulleditorConfig" [editor]="Editor" [(ngModel)]="model.editorData" (change)="onChanges($event)" [disabled]="isDisabled"></ckeditor>
+
+  <!--<div id="editortest"> Testing Editor here </div>-->
+
+</div>

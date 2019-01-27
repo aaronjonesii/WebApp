@@ -26,6 +26,18 @@ class Movie(models.Model):
         return self.title
 
 
+class Post(models.Model):
+    title = models.CharField(max_length=75)
+    content = models.TextField()
+    image = models.URLField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # To reset id: ALTER TABLE api_post AUTO_INCREMENT = 1;
+
+    def __str__(self):
+        return self.title
+
+
 class Ip(object):
     def __init__(self, ip):
         self.ip = ip
@@ -35,3 +47,4 @@ class Ip(object):
         url = "https://ipinfo.io/"
         resp = get(url + ip)
         return resp.json()
+

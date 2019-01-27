@@ -1,4 +1,4 @@
-# Offciial Fontend angularSPA
+# Official Fontend angularSPA
 ##### GitHub: https://github.com/aaronjonesii
 
 ## Notes:
@@ -8,6 +8,8 @@
 * Nebular(Demo): http://akveo.com/ngx-admin/#/pages/iot-dashboard
 * Nebular(Docs): https://akveo.github.io/nebular/docs/components/components-overview
 * Bootstrap: https://getbootstrap.com/docs/4.2/components/alerts/
+* Angular Lazy-Loading: https://angular.io/guide/lazy-loading-ngmodules
+* Angular BoilerPLate Folder Structure: https://github.com/mathisGarberg/angular-folder-structure
 
 Apple Music Links:
 -

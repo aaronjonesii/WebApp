@@ -1,0 +1,22 @@
+@import 'themes';
+
+@import '~@nebular/theme/styles/globals';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+@include nb-install() {
+  @include nb-theme-global();
+};
+/* You can add global styles to this file, and also import other style files */
+
+// Import common styles
+@import 'app-common';
+
+// Material Theme
+// https://material.angular.io/guide/theming
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+nb-search-field.rotate-layout {
+  background: transparent!important; // Fix background for Safari
+}

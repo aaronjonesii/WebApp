@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 
 // Material Modules //
 import {
-  MatBottomSheet, MatBottomSheetConfig, MatBottomSheetContainer, MatBottomSheetModule,
-  MatButtonModule, MatListModule, MatSnackBarModule
+  MatBottomSheet, MatBottomSheetConfig, MatBottomSheetContainer,
+  MatBottomSheetModule, MatButtonModule, MatCardModule,
+  MatIconModule, MatListModule, MatSidenavModule,
+  MatSnackBarModule, MatToolbarModule
 } from '@angular/material';
 // Components
 import { BottomSheet } from '../../home/home.component';
@@ -12,7 +14,9 @@ import { AdminComponent } from '../../admin/admin.component';
 
 const MAT_MODULES  = [
   MatBottomSheetModule, MatListModule, MatSnackBarModule,
-  MatButtonModule,
+  MatButtonModule, MatCardModule, MatToolbarModule,
+    MatButtonModule, MatSidenavModule, MatIconModule,
+    MatListModule,
 ];
 
 @Injectable({
