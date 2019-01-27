@@ -15,6 +15,7 @@ def copytoWebApp(file):
     source = os.path.join(new_production_files_dir, file)
     destination = os.path.join(live_webapp_dir, file)
     shutil.copyfile(source, destination)
+    print(f'Copied file {source} -> {destination}')
 
 
 def delete_file(file):
