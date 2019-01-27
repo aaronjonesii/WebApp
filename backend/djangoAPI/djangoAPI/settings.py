@@ -23,15 +23,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0k&r)@)28b69w657%6e48uuaw^(f_g!*z@@3!&mffa=yk1-ci-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = [
-    'anonsys.tech'
+    '93.188.164.182',
+    # 'anonsys.tech'
 ]
 
 CORS_ORIGIN_WHITELIST = (
     # 'localhost:4200',
-    'anonsys.tech',
+    '93.188.164.182',
 )
 # CORS_ORIGIN_ALLOW_ALL = True
 

@@ -1,3 +1,4 @@
+# TODO: TOo much work dor this.. Just going to point the Apache directory to the build directory.s
 import os
 import shutil
 
