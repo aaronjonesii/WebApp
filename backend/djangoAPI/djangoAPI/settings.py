@@ -28,10 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'anonsys.tech'
 ]
-#
+
 CORS_ORIGIN_WHITELIST = (
     # 'localhost:4200',
-    'anonsys.tech:4200',
+    'anonsys.tech',
 )
 # CORS_ORIGIN_ALLOW_ALL = True
 

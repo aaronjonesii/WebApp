@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { BlogService } from '../blog.service';
-import {map} from "rxjs/operators";
-import {Observable} from "rxjs";
-import { Location } from "@angular/common";
-import {Post} from "../posts";
-import { EditorComponent } from "../editor/editor.component";
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Location } from '@angular/common';
+import { Post } from '../posts';
+import { EditorComponent } from '../editor/editor.component';
+import { NbToastrService } from '@nebular/theme';
 
 
 @Component({
@@ -18,10 +19,12 @@ export class PostComponent implements OnInit {
   post: any;
   postID: string;
   postSaved = false;
+  private index = 0;
   constructor(
     private activatedroute: ActivatedRoute,
     private blog_api: BlogService,
     private location: Location,
+    private toastrService: NbToastrService,
   ) {
     this.postID = this.activatedroute.snapshot.paramMap.get('post_id'); // Get PostID from url
     // this.showPost();
@@ -50,13 +53,25 @@ export class PostComponent implements OnInit {
     // console.log( this.post );
     this.blog_api.updatePost(postID, this.post).subscribe();
     console.log('Blog Post has been updated..');
-    this.postSaved = true;
-    setTimeout(() => this.postSaved = false, 4500);
+    this.showToast('success', 'Blog Post Successfully Saved.');
+    // this.postSaved = true;
+    // setTimeout(() => this.postSaved = false, 4500);
   }
 
   deletePost(postID) {
     this.blog_api.deletePost(postID).subscribe();
     this.goBack();
+  }
+
+
+//  TOASTR FUNCTIONS
+  showToast(status, message) {
+    this.index += 1;
+    console.log(`Toast ${this.index} was just called.`);
+    this.toastrService.show(
+        message,
+        'Heads Up..',
+        { status });
   }
 
 }
