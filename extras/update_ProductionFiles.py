@@ -1,0 +1,58 @@
+import os
+import shutil
+
+
+def getallFiles(dir): return [f for f in os.listdir(dir) if os.path.isfile(os.path.join(dir, f))]
+
+
+def isProductionfile(file):
+    if file in prod_files: return True
+    elif file.startswith(prod_file_prefixs): return True
+    else: return False
+
+
+def copytoWebApp(file):
+    source = os.path.join(new_production_files_dir, file)
+    destination = os.path.join(live_webapp_dir, file)
+    shutil.copyfile(source, destination)
+
+
+def delete_file(file):
+    if fileExists(file):
+        try:
+            os.remove(file)
+            print(f'√ Successfully removed: {file}')
+        except Exception as e: print(f'[*] Something went wrong attempting to remove the file: {file}\n{e} [*]')
+    else: print(f'[!] {file} not found')
+
+
+def fileExists(file): return os.path.isfile(file)
+
+
+if __name__ == '__main__':
+    new_production_files_dir = '/WebApp/frontend/SPA/dist/SPA/'
+    live_webapp_dir = '/home/anonsys/public_html/'
+    # dir = os.path.dirname(os.path.realpath(__file__))
+
+    old_webapp_files = getallFiles(live_webapp_dir)
+    new_webapp_files = getallFiles(new_production_files_dir)
+
+    for file in old_webapp_files:
+        if isProductionfile(file):
+            delete_file(file)
+    for file in new_webapp_files:
+        if isProductionfile(file):
+            copytoWebApp(file)
+
+    prod_files = (
+        '3rdpartylicenses.txt',
+        'index.html',
+    )
+    prod_file_prefixs = (
+        'main',
+        'nebular',
+        'polyfills',
+        'runtime',
+        'styles',
+    )
+
