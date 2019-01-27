@@ -19,6 +19,7 @@ def copytoWebApp(file):
 
 
 def delete_file(file):
+    file = os.path.join(live_webapp_dir, file)
     if fileExists(file):
         try:
             os.remove(file)
