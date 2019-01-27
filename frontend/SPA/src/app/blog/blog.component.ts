@@ -21,7 +21,8 @@ export class BlogComponent implements OnInit {
   constructor( private blog_api: BlogService ) {
   }
 // https://www.apple.com/newsroom/
-// https://avenue-demo.squarespace.com/blog-avenue/2016/3/1/paris
+//
+
 
   ngOnInit(): void {
     // WORKING
